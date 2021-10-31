@@ -38,6 +38,7 @@ call plug#end()
 " NERDCommenter
 nmap <C-_> <Plug>NERDCommenterToggle
 vmap <C-_> <Plug>NERDCommenterToggle<CR>gv
+imap <C-_> <Esc><Plug>NERDCommenterToggle<cr>i
 
 " NERDTree
 let NERDTreeQuitOnOpen=1

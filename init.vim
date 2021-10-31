@@ -22,7 +22,10 @@ let mapleader = ' '
 
 call plug#begin('~/.config/nvim/plugged')
 
+"Plug 'rainglow/vim'
 Plug 'morhetz/gruvbox'
+"Plug 'nanotech/jellybeans.vim', { 'tag': 'v1.7' }
+"Plug 'rafi/awesome-vim-colorschemes'
 Plug 'jiangmiao/auto-pairs'
 Plug 'preservim/nerdtree'
 Plug 'preservim/tagbar'
@@ -46,18 +49,18 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
 call plug#end()
 
-colorscheme gruvbox
-let g:airline_theme='gruvbox'
-
+" Colour scheme
 if (has("termguicolors"))
     set termguicolors
 endif
-
+colorscheme gruvbox
+let g:airline_theme='gruvbox'
 lua require 'colorizer'.setup()
 
 " NERDCommenter
 nmap <C-_> <Plug>NERDCommenterToggle
 vmap <C-_> <Plug>NERDCommenterToggle<CR>gv
+imap <C-_> <Esc><Plug>NERDCommenterToggle<cr>i
 
 " NERDTree
 let NERDTreeQuitOnOpen=1
