@@ -16,16 +16,14 @@ set fileformat=unix
 set nohlsearch
 set colorcolumn=80
 set autochdir
+set autoread
 set hidden
 
 let mapleader = ' '
 
 call plug#begin('~/.config/nvim/plugged')
 
-"Plug 'rainglow/vim'
 Plug 'morhetz/gruvbox'
-"Plug 'nanotech/jellybeans.vim', { 'tag': 'v1.7' }
-"Plug 'rafi/awesome-vim-colorschemes'
 Plug 'jiangmiao/auto-pairs'
 Plug 'preservim/nerdtree'
 Plug 'preservim/tagbar'
@@ -99,6 +97,7 @@ let g:ycm_min_num_of_chars_for_completion=2
 let g:ycm_cache_omnifunc=0
 let g:ycm_seed_identifiers_with_syntax=1
 let g:ycm_key_list_stop_completion = ['<c-y>', '<cr>']
+let g:ycm_log_level='debug'
 nnoremap <silent> <leader>gd :YcmCompleter GoTo<cr>
 nnoremap <silent> <leader>gf :YcmCompleter FixIt<cr>
 

@@ -38,7 +38,7 @@ alias   pacs="pikaur -Ss"
 #function take {
     #mkdir -p "$@" && builtin cd "$@"
 #}
-
+export EDITOR=/usr/bin/vim
 source $HOME/.etc/conda_init.sh
 
 export PATH=$PATH:$HOME/.bin
