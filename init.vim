@@ -76,6 +76,18 @@ nmap <silent> <leader>i g<Tab>
 nmap <silent> <leader>q :close<cr>
 nmap <silent> <leader>w :bp<bar>bd#<cr>
 
+" Transposition of lines and characters
+nnoremap <silent> <C-space> v
+inoremap <silent> <C-space> <Esc><Right>v
+nnoremap <A-Up> :m .-2<CR>
+nnoremap <A-Down> :m .+1<CR>
+inoremap <A-Up> <Esc>:m .-2<CR>gi
+inoremap <A-Down> <Esc>:m .+1<CR>gi
+vnoremap <A-Up> :m '<-2<CR>gv
+vnoremap <A-Down> :m '>+1<CR>gv
+nnoremap <C-t> xp
+inoremap <C-t> <Esc>xpi
+
 " Tabs
 let g:airline#extensions#tabline#enable=1
 let g:airline#extensions#tabline#fnamemode=':t'
