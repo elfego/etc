@@ -87,9 +87,13 @@ vnoremap <A-Up> :m '<-2<CR>gv
 vnoremap <A-Down> :m '>+1<CR>gv
 nnoremap <C-t> xp
 inoremap <C-t> <Esc>xpi
+nnoremap <C-u> d0
+nnoremap <C-k> d$
+inoremap <C-u> <Esc><Right>d0I
+inoremap <C-k> <Esc><Right>d$A
 
 " Tabs
-let g:airline#extensions#tabline#enable=1
+let g:airline#extensions#tabline#enable=2
 let g:airline#extensions#tabline#fnamemode=':t'
 
 " Ultisnips
