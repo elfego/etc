@@ -13,7 +13,7 @@ set shiftwidth=4
 set expandtab
 set autoindent
 set fileformat=unix
-set nohlsearch
+"set nohlsearch
 set colorcolumn=80
 set autochdir
 set autoread
@@ -42,6 +42,7 @@ Plug 'ycm-core/YouCompleteMe'
 Plug 'vim-utils/vim-man'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'nvim-lua/plenary.nvim'
+Plug 'ThePrimeagen/harpoon'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
@@ -91,6 +92,7 @@ nnoremap <C-u> d0
 nnoremap <C-k> d$
 inoremap <C-u> <Esc><Right>d0I
 inoremap <C-k> <Esc><Right>d$A
+map <Esc> :noh<cr>
 
 " Tabs
 let g:airline#extensions#tabline#enable=2
@@ -154,4 +156,15 @@ endif
 if empty(mapcheck('<C-r'))
     map <C-r> <Plug>(ale_previous_wrap)
 endif
+
+" Harpoon
+command HarpoonAdd lua require("harpoon.mark").add_file()
+command HarpoonMenu lua require("harpoon.ui").toggle_quick_menu()
+command -nargs=1 HarpoonGoTo lua require("harpoon.ui").nav_file(<args>)
+
+nnoremap <leader>hm :lua require("harpoon.ui").toggle_quick_menu()<cr>
+nnoremap <A-1> :lua require("harpoon.ui").nav_file(1)<cr>
+nnoremap <A-2> :lua require("harpoon.ui").nav_file(2)<cr>
+nnoremap <A-3> :lua require("harpoon.ui").nav_file(3)<cr>
+nnoremap <A-4> :lua require("harpoon.ui").nav_file(4)<cr>
 
