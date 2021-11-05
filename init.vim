@@ -42,6 +42,7 @@ Plug 'ycm-core/YouCompleteMe'
 Plug 'tpope/vim-fugitive'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'vim-utils/vim-man'
+Plug 'nvim-treesitter/playground'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'ThePrimeagen/harpoon'
@@ -94,7 +95,7 @@ nnoremap <C-u> d0
 nnoremap <C-k> d$
 inoremap <C-u> <Esc><Right>d0I
 inoremap <C-k> <Esc><Right>d$A
-map <Esc> :noh<cr>
+noremap <C-l> :noh<C-l><cr>
 
 " Tabs
 let g:airline#extensions#tabline#enable=2
@@ -158,6 +159,9 @@ endif
 if empty(mapcheck('<C-r'))
     map <C-r> <Plug>(ale_previous_wrap)
 endif
+
+" Tree sitter configs
+lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
 
 " Harpoon
 command HarpoonAdd lua require("harpoon.mark").add_file()
