@@ -162,6 +162,7 @@ endif
 
 " Tree sitter configs
 lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
+nnoremap <F4> :TSPlaygroundToggle<cr>
 
 " Harpoon
 command HarpoonAdd lua require("harpoon.mark").add_file()
