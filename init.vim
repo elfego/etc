@@ -18,6 +18,7 @@ set colorcolumn=80
 set autochdir
 set autoread
 set hidden
+set whichwrap+=<,>,[,]
 
 let mapleader = ' '
 
@@ -83,14 +84,15 @@ nmap <silent> <leader>w :bp<bar>bd#<cr>
 " Transposition of lines and characters
 nnoremap <silent> <C-space> v
 inoremap <silent> <C-space> <Esc><Right>v
-nnoremap <A-Up> :m .-2<CR>
-nnoremap <A-Down> :m .+1<CR>
-inoremap <A-Up> <Esc>:m .-2<CR>gi
-inoremap <A-Down> <Esc>:m .+1<CR>gi
-vnoremap <A-Up> :m '<-2<CR>gv
-vnoremap <A-Down> :m '>+1<CR>gv
+inoremap <Esc> <Esc>`^
+nnoremap <C-Up> :m .-2<CR>
+nnoremap <C-Down> :m .+1<CR>
+inoremap <C-Up> <Esc>:m .-2<CR>gi
+inoremap <C-Down> <Esc>:m .+1<CR>gi
+vnoremap <C-Up> :m '<-2<CR>gv
+vnoremap <C-Down> :m '>+1<CR>gv
+inoremap <C-t> <Esc>xpa
 nnoremap <C-t> xp
-inoremap <C-t> <Esc>xpi
 nnoremap <C-u> d0
 nnoremap <C-k> d$
 inoremap <C-u> <Esc><Right>d0I
@@ -140,7 +142,7 @@ vmap <S-Tab> <gv
 set mouse=""
 let g:is_mouse_enabled=0
 noremap <silent> <leader>m :call ToggleMouse()<cr>
-function ToggleMouse()
+function! ToggleMouse()
     if g:is_mouse_enabled == 1
         echo "Mouse OFF"
         set mouse=""
@@ -165,9 +167,10 @@ lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
 nnoremap <F4> :TSPlaygroundToggle<cr>
 
 " Harpoon
-command HarpoonAdd lua require("harpoon.mark").add_file()
-command HarpoonMenu lua require("harpoon.ui").toggle_quick_menu()
-command -nargs=1 HarpoonGoTo lua require("harpoon.ui").nav_file(<args>)
+command! HarpoonAdd lua require("harpoon.mark").add_file()
+command! HarpoonMenu lua require("harpoon.ui").toggle_quick_menu()
+command! -nargs=1 HarpoonGoTo lua require("harpoon.ui").nav_file(<args>)
+
 
 nnoremap <leader>hm :lua require("harpoon.ui").toggle_quick_menu()<cr>
 nnoremap <A-1> :lua require("harpoon.ui").nav_file(1)<cr>
